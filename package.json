@@ -5,6 +5,7 @@
   "scripts": {
     "generate-schema": "node generateSchemaCache.js",
     "bundle": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "postinstall": "npm run generate-schema && npm run bundle",
     "start": "NODE_ENV=production node server.js"
   },
   "repository": {
@@ -17,6 +18,9 @@
     "url": "https://github.com/edgecoders/learning-graphql-and-relay/issues"
   },
   "homepage": "https://github.com/edgecoders/learning-graphql-and-relay#readme",
+  "engines": {
+    "node": "6.3.1"
+  },
   "dependencies": {
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.2",

@@ -7,9 +7,8 @@ const app = express();
 app.use(express.static('public'));
 
 const mySchema = require('./schema/main');
-const MONGO_URL = 'mongodb://localhost:27017/test';
 
-MongoClient.connect(MONGO_URL, (err, db) => {
+MongoClient.connect(process.env.MONGODB_URI, (err, db) => {
   assert.equal(null, err);
   console.log('Connected to MongoDB server');
 
@@ -19,7 +18,7 @@ MongoClient.connect(MONGO_URL, (err, db) => {
     graphiql: true
   }));
 
-  app.listen(3000, () =>
-    console.log('Running Express.js on port 3000')
+  app.listen(process.env.PORT, () =>
+    console.log(`Running Express.js on port ${process.env.PORT}`)
   );
 });
