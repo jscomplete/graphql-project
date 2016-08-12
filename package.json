@@ -2,9 +2,10 @@
   "name": "graphql-project",
   "version": "1.0.0",
   "description": "Learning GraphQL and Relay",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "generate-schema": "node generateSchemaCache.js",
+    "bundle": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "start": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
